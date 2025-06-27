@@ -1,0 +1,32 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "dotpath"
+version = "0.1.0"
+authors = [
+  { name="Alex Towell", email="lex@metafunctor.com" },
+]
+description = "The complete `dot` path language, with wildcards, descendants, and predicates."
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Text Processing :: Filters",
+]
+dependencies = [
+    "PyYAML>=5.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/queelius/dotpath"
+Issues = "https://github.com/queelius/dotpath/issues"
+
+[project.scripts]
+dotpath = "dotpath.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/dotpath"]
