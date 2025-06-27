@@ -1,6 +1,10 @@
 # `dotselect`
 
-**The complete `dot` path language, with wildcards, descendants, and predicates.**
+> "What we observe is not nature itself, but nature exposed to our method of questioning."
+>
+> — Werner Heisenberg
+
+**Advanced `dot` pathing with wildcards, descendants, and predicates.**
 
 ```python
 >>> from dotselect import find_all
@@ -18,15 +22,15 @@
 ['proj1', 'comp1', 'comp2']
 ```
 
-## Why? A Complete, Unified Path Language
+## Why? A Rich, Pre-built Path Language
 
-The `dot` ecosystem provides a layered approach to finding data. `dotselect`'s language incorporates all layers into a single, powerful syntax.
+The `dot` ecosystem provides a layered approach to finding data. `dotselect` provides a rich, pre-built syntax that combines the most common and powerful addressing patterns into a single tool.
 
-* **Exact Addressing (`dotget` style):** `spec.components.0`
-* **Pattern Addressing (`dotstar` style):**
-  * `*` (Adjacency Wildcard): Matches direct children. `spec.components.*.id`
-  * `**` (Descendant Wildcard): Matches at any depth. `**.id`
-* **Conditional Addressing:** `spec.components[type=server]`
+*   **Exact Addressing (`dotget` style):** `spec.components.0`
+*   **Pattern Addressing (`dotstar` style):**
+    *   `*` (Adjacency Wildcard): Matches direct children. `spec.components.*.id`
+    *   `**` (Descendant Wildcard): Matches at any depth. `**.id`
+*   **Conditional Addressing:** `spec.components[type=server]`
 
 You can combine them to ask complex questions with maximum expressiveness and minimum syntax.
 
@@ -80,16 +84,19 @@ dotselect 'spec.components[type=server].ports' data.yml > ports.yml
 
 ✅ You need to combine wildcards, deep scans, and conditional filters.
 ✅ You need to find data without knowing its exact depth or location.
-✅ You want the most powerful addressing tool in the `dot` ecosystem.
+✅ You want the most powerful *pre-built* addressing tool in the `dot` ecosystem.
 
 ## When NOT to use `dotselect`
 
 ❌ You *only* need a simple wildcard (`*`). Use `dotstar` for clarity and simplicity.
 ❌ You *only* need an exact path. Use `dotget`.
+❌ You need to define a **custom path syntax** (e.g., regex keys, fuzzy matching) or need to build a specialized, high-performance tool. **Use the `dotpath` engine for this.**
 
 ## Philosophy
 
-`dotselect` is the master user-facing tool of the **Addressing Pillar**. It provides a complete vocabulary for asking complex questions about the location of data. Its purpose is to provide precise, unambiguous locations to the **Action Layer** tools (`dotpipe`, `dotmod`), enabling them to perform powerful, targeted operations.
+`dotselect` embodies the principle of "the right tool for the job." While `dotget` and `dotstar` provide simple, elegant solutions for common cases, `dotselect` provides a powerful, curated set of features for the vast majority of complex data-finding tasks.
+
+It is the bridge between simplicity and full extensibility. Its purpose is to provide a rich, expressive syntax for asking complex questions about the location of data, without requiring the user to engage with the underlying `dotpath` engine. It gives precise, unambiguous locations to the **Action Layer** tools (`dotpipe`, `dotmod`), enabling them to perform powerful, targeted operations.
 
 ## Install
 
@@ -98,4 +105,6 @@ pip install dotselect
 ```
 
 ## License
+
 MIT
+
