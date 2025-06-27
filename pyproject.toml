@@ -18,6 +18,7 @@ classifiers = [
     "Topic :: Text Processing :: Filters",
 ]
 dependencies = [
+    "dotpath",
     "PyYAML>=5.0",
 ]
 
