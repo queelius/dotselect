@@ -8,17 +8,17 @@ except ImportError:
 from . import find_all, find_first
 
 def main():
-    """The main entry point for the dotpath command-line tool."""
+    """The main entry point for the dotselect command-line tool."""
     
     parser = argparse.ArgumentParser(
-        prog="dotpath",
-        description="Find data in a JSON or YAML document using the dotpath language.",
+        prog="dotselect",
+        description="Find data in a JSON or YAML document using the dotselect language.",
         epilog="Use '-' for a filename to read from stdin. The result is written to stdout."
     )
     
     parser.add_argument(
         'path_string',
-        help="The dotpath string (e.g., 'users[status=active].*.name')."
+        help="The dotselect string (e.g., 'users[status=active].*.name')."
     )
     
     parser.add_argument(

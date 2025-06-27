@@ -1,9 +1,9 @@
-# dotpath
+# `dotselect`
 
 **The complete `dot` path language, with wildcards, descendants, and predicates.**
 
 ```python
->>> from dotpath import find_all
+>>> from dotselect import find_all
 >>> data = {
 ...     "id": "proj1",
 ...     "spec": {
@@ -20,7 +20,7 @@
 
 ## Why? A Complete, Unified Path Language
 
-The `dot` ecosystem provides a layered approach to finding data. `dotpath`'s language incorporates all layers into a single, powerful syntax.
+The `dot` ecosystem provides a layered approach to finding data. `dotselect`'s language incorporates all layers into a single, powerful syntax.
 
 * **Exact Addressing (`dotget` style):** `spec.components.0`
 * **Pattern Addressing (`dotstar` style):**
@@ -64,37 +64,37 @@ find_first(data, "spec.components[type=server].ports")
 
 ## Command-Line Usage
 
-`dotpath` can be used as a command-line tool to query JSON or YAML files.
+`dotselect` can be used as a command-line tool to query JSON or YAML files.
 
 The output format will match the input format.
 
 ```bash
 # Find all ids in a JSON file from stdin
-cat data.json | dotpath '**.id' > ids.json
+cat data.json | dotselect '**.id' > ids.json
 
 # Find the ports of the server component in a YAML file
-dotpath 'spec.components[type=server].ports' data.yml > ports.yml
+dotselect 'spec.components[type=server].ports' data.yml > ports.yml
 ```
 
-## When to use `dotpath`
+## When to use `dotselect`
 
 ✅ You need to combine wildcards, deep scans, and conditional filters.
 ✅ You need to find data without knowing its exact depth or location.
 ✅ You want the most powerful addressing tool in the `dot` ecosystem.
 
-## When NOT to use `dotpath`
+## When NOT to use `dotselect`
 
 ❌ You *only* need a simple wildcard (`*`). Use `dotstar` for clarity and simplicity.
 ❌ You *only* need an exact path. Use `dotget`.
 
 ## Philosophy
 
-`dotpath` is the master engine of the **Addressing Pillar**. It provides a complete vocabulary for asking complex questions about the location of data. Its purpose is to provide precise, unambiguous locations to the **Action Layer** tools (`dotpipe`, `dotmod`), enabling them to perform powerful, targeted operations.
+`dotselect` is the master user-facing tool of the **Addressing Pillar**. It provides a complete vocabulary for asking complex questions about the location of data. Its purpose is to provide precise, unambiguous locations to the **Action Layer** tools (`dotpipe`, `dotmod`), enabling them to perform powerful, targeted operations.
 
 ## Install
 
 ```bash
-pip install dotpath
+pip install dotselect
 ```
 
 ## License
